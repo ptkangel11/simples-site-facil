@@ -38,22 +38,22 @@ const CountdownTimer = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center space-x-12 mb-8">
+    <div className="flex items-center justify-center space-x-4 md:space-x-12 mb-8">
       <div className="text-center">
-        <div className="text-6xl font-light text-white mb-2">{timeLeft.days}</div>
-        <div className="text-sm text-gray-300 tracking-widest">DIAS</div>
+        <div className="text-3xl md:text-6xl font-light text-white mb-2">{timeLeft.days}</div>
+        <div className="text-xs md:text-sm text-gray-300 tracking-widest">DIAS</div>
       </div>
       <div className="text-center">
-        <div className="text-6xl font-light text-white mb-2">{timeLeft.hours}</div>
-        <div className="text-sm text-gray-300 tracking-widest">HORAS</div>
+        <div className="text-3xl md:text-6xl font-light text-white mb-2">{timeLeft.hours}</div>
+        <div className="text-xs md:text-sm text-gray-300 tracking-widest">HORAS</div>
       </div>
       <div className="text-center">
-        <div className="text-6xl font-light text-white mb-2">{timeLeft.minutes}</div>
-        <div className="text-sm text-gray-300 tracking-widest">MINUTOS</div>
+        <div className="text-3xl md:text-6xl font-light text-white mb-2">{timeLeft.minutes}</div>
+        <div className="text-xs md:text-sm text-gray-300 tracking-widest">MINUTOS</div>
       </div>
       <div className="text-center">
-        <div className="text-6xl font-light text-white mb-2">{timeLeft.seconds}</div>
-        <div className="text-sm text-gray-300 tracking-widest">SEGUNDOS</div>
+        <div className="text-3xl md:text-6xl font-light text-white mb-2">{timeLeft.seconds}</div>
+        <div className="text-xs md:text-sm text-gray-300 tracking-widest">SEGUNDOS</div>
       </div>
     </div>
   );

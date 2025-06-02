@@ -8,9 +8,10 @@ const Index = () => {
     <div className="min-h-screen bg-black font-inter overflow-hidden relative">
       {/* Background Image - responsive */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat bg-center md:bg-center"
         style={{
-          backgroundImage: 'url("/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")'
+          backgroundImage: 'url("/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
+          backgroundPosition: 'center center'
         }}
       >
         {/* Dark overlay for better text readability */}
@@ -21,7 +22,7 @@ const Index = () => {
       <Navigation />
 
       {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center">
+      <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="container mx-auto px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
@@ -35,7 +36,9 @@ const Index = () => {
               </p>
               
               {/* Countdown Timer */}
-              <CountdownTimer />
+              <div className="flex justify-center lg:justify-start">
+                <CountdownTimer />
+              </div>
             </div>
 
             {/* Right side - Content area (can be used for additional content if needed) */}
