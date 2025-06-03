@@ -11,12 +11,17 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  // Define 'base' com base no modo
+  base: mode === 'production'
+    // ESSENCIAL: Substitua NOME_DO_SEU_REPOSITORIO pelo nome real do seu repositório no GitHub
+    // Se for um site de usuário/organização (ex: seu-usuario.github.io), use '/'
+    ? '/simples-site-facil/'
+    : '/',
 }));
