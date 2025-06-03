@@ -1,0 +1,28 @@
+/* src/components/AnimatedText.css */
+
+.animated-text-container {
+  display: inline-block; /* Ou 'block', dependendo do seu layout */
+  overflow: hidden; /* Opcional: para garantir que as letras não apareçam fora do fluxo antes da animação */
+}
+
+.animated-letter {
+  display: inline-block; /* Permite transformar e animar cada letra */
+  opacity: 0; /* Começa invisível */
+  transform: translateY(100%); /* Começa abaixo da sua posição final */
+  animation-name: slideUpAndFadeIn;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; /* Mantém o estado final da animação */
+  /* animation-duration é definido inline no componente */
+  /* animation-delay é definido inline no componente */
+}
+
+@keyframes slideUpAndFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(100%); /* Posição inicial (ex: 100% para vir de baixo) */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%); /* Posição final */
+  }
+}
