@@ -5,23 +5,21 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Adicione a propriedade 'base' aqui
+  base: '/simples-site-facil/', // ESSENCIAL para GitHub Pages em subdiretório
+
   server: {
     host: "::",
     port: 8080,
   },
   plugins: [
     react(),
-    mode === 'development' && componentTagger(),
+    mode === 'development' &&
+    componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // Define 'base' com base no modo
-  base: mode === 'production'
-    // ESSENCIAL: Substitua NOME_DO_SEU_REPOSITORIO pelo nome real do seu repositório no GitHub
-    // Se for um site de usuário/organização (ex: seu-usuario.github.io), use '/'
-    ? '/simples-site-facil/'
-    : '/',
 }));
