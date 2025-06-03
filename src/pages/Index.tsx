@@ -2,6 +2,7 @@
 import React from 'react';
 import CountdownTimer from '../components/CountdownTimer'; // Certifique-se que o caminho está correto
 
+
 const Index = () => {
   return (
     // Contêiner principal para o conteúdo da página Index.

@@ -132,6 +132,7 @@ const ConfirmarPresenca = () => {
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-4 py-8 md:py-12"> {/* Exemplo: 4rem para altura da nav */}
       <div className="container mx-auto"> {/* Container para o conteúdo do formulário */}
         <div className="max-w-2xl mx-auto"> {/* Limita a largura do formulário */}
+           <div className="animate-fade-in">
           {/* Header da Página de Confirmação */}
           <div className="text-center mb-8 sm:mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-3 sm:mb-4 tracking-wider">
@@ -141,7 +142,7 @@ const ConfirmarPresenca = () => {
               FORMATURA DR. PABLO BERINI LEMGRUBER
             </p>
           </div>
-
+          </div>
           {/* Estilos CSS customizados para o formulário */}
           <style dangerouslySetInnerHTML={{
             __html: `

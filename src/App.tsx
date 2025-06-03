@@ -1,14 +1,15 @@
-// App.tsx
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Layout from "./components/Layout"; // Importe o novo Layout
+import Layout from "./components/Layout";
 import Index from "./pages/Index";
 import ConfirmarPresenca from "./pages/ConfirmarPresenca";
 import NotFound from "./pages/NotFound";
+import PersistentAudioPlayer from "./components/PersistentAudioPlayer"; // Importe o player
 
 const queryClient = new QueryClient();
 
@@ -17,17 +18,15 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/simples-site-facil"> {/* Lembre-se do basename se estiver em subdiretório */}
-        <Routes>
-          {/* Envolva as rotas que devem ter o fundo comum com o componente Layout */}
-          <Route path="/" element={<Layout />}> {/* Layout como elemento pai da rota */}
-            <Route index element={<Index />} /> {/* 'index' para a rota padrão do pai '/' */}
-            <Route path="confirmar-presenca" element={<ConfirmarPresenca />} />
-            {/* Adicione outras rotas aqui que devem ter o mesmo fundo */}
-          </Route>
+      <BrowserRouter basename="/simples-site-facil"> {/* Ou seu basename correto */}
+        {/* Player de Áudio Persistente */}
+        {/* <PersistentAudioPlayer src="" /> Caminho a partir da pasta public */}
 
-          {/* Rota NotFound pode ficar fora se não precisar do mesmo layout de fundo,
-              ou dentro se precisar. Se for uma página simples, pode ser fora. */}
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Index />} />
+            <Route path="confirmar-presenca" element={<ConfirmarPresenca />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
