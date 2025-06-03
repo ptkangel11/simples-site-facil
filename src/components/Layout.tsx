@@ -12,7 +12,7 @@ const Layout = () => {
                                                                   // Você pode mudar para bg-right-top, bg-right-bottom, ou remover e usar style abaixo
         style={{
           // CAMINHO CORRIGIDO: Assumindo que a imagem está em 'public/lovable-uploads/...'
-          backgroundImage: 'url("src/components/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
+          backgroundImage: 'url("https://github.com/ptkangel11/simples-site-facil/blob/main/src/components/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png?raw=true")',
           // Se 'bg-right' não for suficiente ou quiser mais controle:
           // backgroundPosition: '80% center', // Exemplo: 80% da esquerda, centro verticalmente
         }}
