@@ -8,14 +8,22 @@ const Index = () => {
     <div className="min-h-screen bg-black font-inter overflow-hidden relative">
       {/* Background Image - responsive */}
       <div 
-        className="absolute inset-0 bg-cover bg-no-repeat bg-center md:bg-center"
+        className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: 'url("/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
-          backgroundPosition: 'center center'
+          backgroundPosition: 'left center'
         }}
       >
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      </div>
+
+      {/* Music Player Space - Ready for implementation */}
+      <div className="absolute top-4 left-4 z-20">
+        {/* TODO: Add music player component here */}
+        <div className="hidden">
+          {/* Music player will be implemented here */}
+        </div>
       </div>
 
       {/* Navigation */}
