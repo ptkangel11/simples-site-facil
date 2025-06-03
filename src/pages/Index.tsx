@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navigation from '../components/Navigation';
 import CountdownTimer from '../components/CountdownTimer';
@@ -29,7 +30,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left side - Text content */}
-            <div className="text-center lg:text-left animate-fade-in">
+            <div className="text-center lg:text-center animate-fade-in">
               <h1 className="text-4xl lg:text-5xl text-white mb-4 tracking-wider font-light text-center">
                 DR. PABLO BERINI LEMGRUBER
               </h1>
@@ -38,7 +39,7 @@ const Index = () => {
               </p>
               
               {/* Countdown Timer */}
-              <div className="flex justify-center lg:justify-start">
+              <div className="flex justify-center">
                 <CountdownTimer />
               </div>
             </div>
