@@ -10,7 +10,7 @@ const Layout = () => {
       <div
         className="absolute inset-0 bg-cover bg-no-repeat" // Mantenha bg-cover e bg-no-repeat
         style={{
-          backgroundImage: 'url("/workspaces/simples-site-facil/src/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
+          backgroundImage: 'url("https://simples-site-facil.lovable.app/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
           // AQUI: Mude a posição
           backgroundPosition: 'right center', // Alinha à direita horizontalmente, centro verticalmente
           // Outras opções:
