@@ -2,20 +2,26 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import CountdownTimer from '../components/CountdownTimer';
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-black font-inter overflow-hidden relative">
+  return <div className="min-h-screen bg-black font-inter overflow-hidden relative">
       {/* Background Image - responsive */}
       <div 
         className="absolute inset-0 bg-cover bg-no-repeat bg-center md:bg-center"
         style={{
-          backgroundImage: 'url("src/components/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
+          backgroundImage: 'url("/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
           backgroundPosition: 'center center'
         }}
       >
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      </div>
+
+      {/* Music Player Space - Ready for implementation */}
+      <div className="absolute top-4 left-4 z-20">
+        {/* TODO: Add music player component here */}
+        <div className="hidden">
+          {/* Music player will be implemented here */}
+        </div>
       </div>
 
       {/* Navigation */}
@@ -27,16 +33,16 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
             {/* Left side - Text content */}
-            <div className="text-center lg:text-left animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl font-light text-white mb-4 tracking-wider">
+            <div className="text-center lg:text-center animate-fade-in">
+              <h1 className="text-4xl lg:text-5xl text-white mb-4 tracking-wider font-light text-center">
                 DR. PABLO BERINI LEMGRUBER
               </h1>
-              <p className="text-xl text-gray-300 mb-12 tracking-widest">
+              <p className="text-xl text-gray-300 mb-12 tracking-widest text-center">
                 MEDICINA 2025
               </p>
               
               {/* Countdown Timer */}
-              <div className="flex justify-center lg:justify-start">
+              <div className="flex justify-center">
                 <CountdownTimer />
               </div>
             </div>
@@ -48,8 +54,6 @@ const Index = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
