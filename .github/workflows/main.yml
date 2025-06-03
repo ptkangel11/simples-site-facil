@@ -1,0 +1,53 @@
+name: Deploy Vite Site to GitHub Pages
+
+on:
+  # Dispara o workflow em pushes para a branch principal (main ou master)
+  push:
+    branches:
+      - main # Ou 'master', dependendo da sua branch principal
+  # Permite que você execute este workflow manualmente na aba Actions
+  workflow_dispatch:
+
+# Permissões para o GITHUB_TOKEN para permitir a implantação no GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Define a URL de saída para o ambiente
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Sempre use a versão mais recente aqui
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Especifique a versão do Node.js que seu projeto usa
+          cache: 'npm' # Ou 'yarn' se você usar Yarn
+
+      - name: Install dependencies
+        run: npm install # Ou 'yarn install'
+
+      - name: Build project
+        # IMPORTANTE: Adicione a flag --base=./ se o nome do repositório for o mesmo que a base
+        # Ou defina a base correta no vite.config.js
+        run: npm run build # Ou 'yarn build'. Verifique seu package.json para o comando correto
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Pasta de onde os arquivos serão carregados (geralmente 'dist' para Vite)
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
