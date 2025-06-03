@@ -13,7 +13,7 @@ const Index = () => {
     // você pode simplificar este div.
     // 'flex flex-col items-center justify-center': Centraliza o conteúdo filho.
     // 'text-center': Centraliza o texto dentro dos elementos filhos.
-    <div className="flex flex-col items-center justify-center text-center min-h-[calc(100vh-4rem)] px-4 py-8 md:py-12"> {/* Exemplo: 4rem para altura da nav */}
+    <div className="flex flex-col items-center justify-start text-center min-h-[calc(100vh-4rem)] px-4 pt-20 md:pt-24 pb-8"> {/* Ex: 4rem para altura da nav */}
       {/*
         Você pode usar um container para limitar a largura se desejar,
         mas a centralização principal é feita pela div acima.
