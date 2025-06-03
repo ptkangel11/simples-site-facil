@@ -11,7 +11,7 @@ const Index = () => {
         className="absolute inset-0 bg-cover bg-no-repeat"
         style={{
           backgroundImage: 'url("/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
-          backgroundPosition: 'left center'
+          backgroundPosition: 'center left'
         }}
       >
         {/* Dark overlay for better text readability */}
