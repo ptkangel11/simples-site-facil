@@ -1,59 +1,35 @@
-
+// src/pages/Index.tsx
 import React from 'react';
-import Navigation from '../components/Navigation';
-import CountdownTimer from '../components/CountdownTimer';
+import CountdownTimer from '../components/CountdownTimer'; // Certifique-se que o caminho está correto
+
 const Index = () => {
-  return <div className="min-h-screen bg-black font-inter overflow-hidden relative">
-      {/* Background Image - responsive */}
-      <div 
-        className="absolute inset-0 bg-cover bg-no-repeat bg-center md:bg-center"
-        style={{
-          backgroundImage: 'url("/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
-          backgroundPosition: 'center center'
-        }}
-      >
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      </div>
-
-      {/* Music Player Space - Ready for implementation */}
-      <div className="absolute top-4 left-4 z-20">
-        {/* TODO: Add music player component here */}
-        <div className="hidden">
-          {/* Music player will be implemented here */}
+  return (
+    // Contêiner principal para o conteúdo da página Index.
+    // 'min-h-[calc(100vh-VAR_ALTURA_NAV)]': Faz o contêiner ocupar pelo menos a altura da tela
+    // menos a altura da sua barra de navegação (substitua VAR_ALTURA_NAV pela altura real em pixels ou rem, ex: 4rem, 64px).
+    // Isso ajuda 'justify-center' a funcionar verticalmente de forma eficaz.
+    // Se o seu Layout ou o <main> dentro dele já define uma altura e centralização,
+    // você pode simplificar este div.
+    // 'flex flex-col items-center justify-center': Centraliza o conteúdo filho.
+    // 'text-center': Centraliza o texto dentro dos elementos filhos.
+    <div className="flex flex-col items-center justify-center text-center min-h-[calc(100vh-4rem)] px-4 py-8 md:py-12"> {/* Exemplo: 4rem para altura da nav */}
+      {/*
+        Você pode usar um container para limitar a largura se desejar,
+        mas a centralização principal é feita pela div acima.
+      */}
+      <div className="animate-fade-in"> {/* Animação aplicada ao bloco de conteúdo */}
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-wider font-light">
+          DR. PABLO BERINI LEMGRUBER
+        </h1>
+        <p className="text-xl sm:text-2xl text-gray-300 mb-10 sm:mb-12 tracking-widest">
+          MEDICINA 2025
+        </p>
+        <div className="flex justify-center"> {/* O CountdownTimer já estava dentro de um flex justify-center */}
+          <CountdownTimer />
         </div>
       </div>
-
-      {/* Navigation */}
-      <Navigation />
-
-      {/* Main Content */}
-      <div className="relative z-10 min-h-screen flex items-center justify-center">
-        <div className="container mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Left side - Text content */}
-            <div className="text-center lg:text-center animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl text-white mb-4 tracking-wider font-light text-center">
-                DR. PABLO BERINI LEMGRUBER
-              </h1>
-              <p className="text-xl text-gray-300 mb-12 tracking-widest text-center">
-                MEDICINA 2025
-              </p>
-              
-              {/* Countdown Timer */}
-              <div className="flex justify-center">
-                <CountdownTimer />
-              </div>
-            </div>
-
-            {/* Right side - Content area (can be used for additional content if needed) */}
-            <div className="hidden lg:block">
-              {/* This space is available for additional content */}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
