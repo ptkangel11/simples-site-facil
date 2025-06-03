@@ -19,7 +19,7 @@ const Index = () => {
         mas a centralização principal é feita pela div acima.
       */}
       <div className="animate-fade-in"> {/* Animação aplicada ao bloco de conteúdo */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-4 tracking-wider font-light">
+        <h1 className="text-xl sm:text-2xl lg:text-4xl text-white mb-4 tracking-wider font-light">
           DR. PABLO BERINI LEMGRUBER
         </h1>
         <p className="text-xl sm:text-2xl text-gray-300 mb-10 sm:mb-12 tracking-widest">

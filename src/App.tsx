@@ -20,7 +20,12 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename="/simples-site-facil"> {/* Ou seu basename correto */}
         {/* Player de Áudio Persistente */}
-        {/* <PersistentAudioPlayer src="" /> Caminho a partir da pasta public */}
+        {/* IMPORTANTE: 
+          1. Mova o seu arquivo MP3 para a pasta 'public'. 
+             Exemplo: 'public/audio/musica-fundo.mp3'
+          2. Atualize o 'src' abaixo para o caminho correto a partir da pasta 'public'.
+        */}
+        <PersistentAudioPlayer src="src/components/bed804e5d5a86eb0cbd4730cd2d99f9f_430c5367debce12aed7fe8e7e583aa58.mp3" /> {/* Exemplo de caminho público */}
 
         <Routes>
           <Route path="/" element={<Layout />}>

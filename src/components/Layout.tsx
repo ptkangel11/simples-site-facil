@@ -1,32 +1,32 @@
 // src/components/Layout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navigation from './Navigation';
-// import backgroundImageSrc from '../assets/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png';
+import Navigation from './Navigation'; // Certifique-se que este caminho está correto
 
 const Layout = () => {
   return (
     <div className="min-h-screen bg-black font-inter relative">
+      {/* Background Image - Aplicado a todas as páginas */}
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat" // Mantenha bg-cover e bg-no-repeat
+        className="absolute inset-0 bg-cover bg-no-repeat bg-right" // Classe 'bg-right' para alinhar à direita (e centro verticalmente)
+                                                                  // Você pode mudar para bg-right-top, bg-right-bottom, ou remover e usar style abaixo
         style={{
-          backgroundImage: 'url("https://simples-site-facil.lovable.app/lovable-uploads/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
-          // AQUI: Mude a posição
-          backgroundPosition: 'right center', // Alinha à direita horizontalmente, centro verticalmente
-          // Outras opções:
-          // backgroundPosition: '100% 50%', // Equivalente a 'right center'
-          // backgroundPosition: 'right top',   // Canto superior direito
-          // backgroundPosition: 'right bottom', // Canto inferior direito
-          // backgroundPosition: '80% center', // Move 80% para a direita, centro verticalmente (para ajuste fino)
+          // CAMINHO CORRIGIDO: Assumindo que a imagem está em 'public/lovable-uploads/...'
+          backgroundImage: 'url("src/components/75838767-2b1b-4c4a-a8d4-3686ad0af0cb.png")',
+          // Se 'bg-right' não for suficiente ou quiser mais controle:
+          // backgroundPosition: '80% center', // Exemplo: 80% da esquerda, centro verticalmente
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-60"></div> {/* Overlay escuro */}
       </div>
 
+      {/* Navegação - Presente em todas as páginas */}
       <Navigation />
 
-      <main className="relative z-10">
-        <Outlet />
+      {/* Conteúdo da Rota Atual - Renderizado aqui */}
+      {/* Adicionamos flex para ajudar na centralização do conteúdo das páginas filhas se elas também usarem flex */}
+      <main className="relative z-10 flex flex-col flex-grow"> 
+        <Outlet /> {/* As rotas filhas (Index, ConfirmarPresenca, etc.) serão renderizadas aqui */}
       </main>
     </div>
   );

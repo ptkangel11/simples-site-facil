@@ -2,74 +2,85 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 interface PersistentAudioPlayerProps {
-  src: string; // Caminho para o arquivo de música
+  src: string;
 }
 
 const PersistentAudioPlayer: React.FC<PersistentAudioPlayerProps> = ({ src }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false); // Para autoplay com interação
+  // const [isPlaying, setIsPlaying] = useState(false); // Não é mais necessário se o botão for removido
+  const [hasInteracted, setHasInteracted] = useState(false);
 
-  // Tenta tocar a música após a primeira interação do usuário em qualquer lugar da página
   useEffect(() => {
     const handleFirstInteraction = () => {
       setHasInteracted(true);
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('keydown', handleFirstInteraction);
+      window.removeEventListener('click', handleFirstInteraction, { capture: true });
+      window.removeEventListener('keydown', handleFirstInteraction, { capture: true });
+      window.removeEventListener('touchstart', handleFirstInteraction, { capture: true });
     };
 
-    window.addEventListener('click', handleFirstInteraction);
-    window.addEventListener('keydown', handleFirstInteraction);
+    window.addEventListener('click', handleFirstInteraction, { capture: true, once: true });
+    window.addEventListener('keydown', handleFirstInteraction, { capture: true, once: true });
+    window.addEventListener('touchstart', handleFirstInteraction, { capture: true, once: true });
 
     return () => {
-      window.removeEventListener('click', handleFirstInteraction);
-      window.removeEventListener('keydown', handleFirstInteraction);
+      window.removeEventListener('click', handleFirstInteraction, { capture: true });
+      window.removeEventListener('keydown', handleFirstInteraction, { capture: true });
+      window.removeEventListener('touchstart', handleFirstInteraction, { capture: true });
     };
   }, []);
 
   useEffect(() => {
     if (hasInteracted && audioRef.current) {
+      audioRef.current.volume = 0.5; // Volume inicial
       audioRef.current.play().then(() => {
-        setIsPlaying(true);
+        // setIsPlaying(true); // Não é mais necessário
+        console.log("Música tocando após interação.");
       }).catch(error => {
-        // Autoplay bloqueado ou outro erro
-        console.warn("Autoplay foi bloqueado ou ocorreu um erro:", error);
-        setIsPlaying(false);
+        console.warn("Autoplay da música foi bloqueado ou ocorreu um erro:", error);
+        // setIsPlaying(false); // Não é mais necessário
       });
     }
-  }, [hasInteracted]); // Tenta tocar quando hasInteracted muda para true
+  }, [hasInteracted]);
 
+  // A função togglePlayPause e o botão foram removidos/comentados
+  /*
   const togglePlayPause = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(error => console.warn("Erro ao tocar áudio:", error));
-      }
-      setIsPlaying(!isPlaying);
+    if (!audioRef.current) return;
+
+    if (!hasInteracted) {
+        setHasInteracted(true);
+        if (!isPlaying) {
+            audioRef.current.play().then(() => setIsPlaying(true)).catch(e => console.warn(e));
+        } else {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        }
+    } else {
+        if (isPlaying) {
+            audioRef.current.pause();
+        } else {
+            audioRef.current.play().catch(e => console.warn("Erro ao tocar áudio:", e));
+        }
+        setIsPlaying(!isPlaying);
     }
   };
+  */
 
   return (
-    <div style={{ position: 'fixed', bottom: '10px', left: '10px', zIndex: 1000 }}> {/* Estilo simples para o botão */}
-      <audio ref={audioRef} src={src} loop />
-      {hasInteracted && ( // Só mostra o botão depois da primeira interação
+    // A div que continha o botão pode ser removida ou deixada se você planeja adicionar outros controles ocultos no futuro.
+    // Por enquanto, vamos apenas renderizar o elemento de áudio.
+    <div>
+      <audio ref={audioRef} src={src} loop preload="auto" />
+      {/* O botão foi removido daqui:
+      {showButton && (
         <button
           onClick={togglePlayPause}
-          className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full shadow-lg transition-colors duration-300"
-          aria-label={isPlaying ? "Pausar música" : "Tocar música"}
+          // ... classes e atributos ...
         >
-          {isPlaying ? (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
-            </svg>
-          ) : (
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
-            </svg>
-          )}
+          {isPlaying ? ( ... ) : ( ... )}
         </button>
       )}
+      */}
     </div>
   );
 };
