@@ -18,7 +18,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/simples-site-facil"> {/* Ou seu basename correto */}
+      <BrowserRouter basename="/"> {/* Ou seu basename correto */}
         {/* Player de Áudio Persistente */}
         {/* IMPORTANTE: 
           1. Mova o seu arquivo MP3 para a pasta 'public'. 
