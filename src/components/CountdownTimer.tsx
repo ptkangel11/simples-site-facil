@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const CountdownTimer = () => {
   const calculateTimeLeft = () => {
-    const targetDate = new Date(new Date().getFullYear(), 12, 5);
+    const targetDate = new Date(new Date().getFullYear(), 11, 5); // 11 = Dezembro (meses vão de 0 a 11)
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
