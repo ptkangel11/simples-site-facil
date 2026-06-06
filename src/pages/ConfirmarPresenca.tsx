@@ -24,7 +24,7 @@ const ConfirmarPresenca = () => {
           { input: rsvpForm.querySelector<HTMLInputElement>('input[name="_u460484737397886308[first]"]'), name: "Primeiro Nome" },
           { input: rsvpForm.querySelector<HTMLInputElement>('input[name="_u460484737397886308[last]"]'), name: "Último Nome" },
           { input: rsvpForm.querySelector<HTMLInputElement>('input[name="_u586374190954560186"]'), name: "E-mail" },
-          { input: rsvpForm.querySelector<HTMLInputElement>('input[name="_u712937222961165058"]'), name: "Código do convite" }
+          { input: rsvpForm.querySelector<HTMLInputElement>('input[name="_u712937222961165058"]'), name: "Telefone / WhatsApp" }
         ];
 
         for (const field of requiredFields) {
@@ -66,7 +66,7 @@ const ConfirmarPresenca = () => {
             formData.append('email', requiredFields[2].input.value.trim());
         }
         if (requiredFields[3].input?.value) {
-            formData.append('presenca', requiredFields[3].input.value.trim());
+            formData.append('telefone', requiredFields[3].input.value.trim());
         }
 
         fetch(SCRIPT_URL, {
@@ -115,10 +115,10 @@ const ConfirmarPresenca = () => {
             {/* Header da Página de Confirmação */}
             <div className="mb-8 sm:mb-12"> {/* text-center já está no pai */}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white mb-3 sm:mb-4 tracking-wider">
-                CONFIRMAÇÃO DE PRESENÇA
+                AGENDE SUA CONSULTA
               </h1>
               <p className="text-lg sm:text-xl text-gray-300 tracking-widest">
-                FORMATURA DR. PABLO BERINI LEMGRUBER
+                DR. PABLO BERINI LEMGRUBER
               </p>
             </div>
 
@@ -272,7 +272,7 @@ const ConfirmarPresenca = () => {
                   <form id="rsvp-form" noValidate> 
                     <div className="wsite-form-container" style={{marginTop: '10px'}}>
                       <ul className="formlist" style={{listStyle: 'none', padding: 0, margin: 0}}>
-                        <h2 className="wsite-content-title" style={{textAlign: 'center'}}>CONFIRME SUA PRESENÇA</h2>
+                        <h2 className="wsite-content-title" style={{textAlign: 'center'}}>INFORME SEUS DADOS</h2>
 
                         <div className="wsite-form-field">
                           <label className="wsite-form-label">Nome<span className="form-not-required">*</span></label>
@@ -294,7 +294,7 @@ const ConfirmarPresenca = () => {
                         </div>
 
                         <div className="wsite-form-field">
-                          <label className="wsite-form-label" htmlFor="input-custom-invitecode">Código do convite <span className="form-not-required">*</span></label>
+                          <label className="wsite-form-label" htmlFor="input-custom-invitecode">Telefone / WhatsApp <span className="form-not-required">*</span></label>
                           <div className="wsite-form-input-container">
                             <input id="input-custom-invitecode" className="wsite-form-input wsite-input" type="text" name="_u712937222961165058" required />
                           </div>

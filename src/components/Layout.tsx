@@ -8,7 +8,7 @@ const Layout = () => {
     <div className="min-h-screen bg-black font-inter relative">
       {/* Background Image - Aplicado a todas as páginas */}
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat bg-right" // Classe 'bg-right' para alinhar à direita (e centro verticalmente)
+        className="fixed inset-0 bg-cover bg-no-repeat bg-right" // Classe 'bg-right' para alinhar à direita (e centro verticalmente)
                                                                   // Você pode mudar para bg-right-top, bg-right-bottom, ou remover e usar style abaixo
         style={{
           // CAMINHO CORRIGIDO: Assumindo que a imagem está em 'public/lovable-uploads/...'
