@@ -9,11 +9,11 @@ const Layout = () => {
     <div className="min-h-screen bg-black font-inter relative">
       {/* Background Image - Aplicado a todas as páginas */}
       <div
-        className="fixed inset-0 bg-cover bg-no-repeat bg-center" 
-        style={{
-          backgroundImage: `url(${DrPabloImage})`,
-        }}
-      >
+          className="fixed inset-0 bg-cover bg-no-repeat bg-[70%_top] md:bg-center" 
+          style={{
+            backgroundImage: `url(${DrPabloImage})`,
+          }}
+          >
         <div className="absolute inset-0 bg-black bg-opacity-30"></div> {/* Overlay escuro */}
       </div>
 

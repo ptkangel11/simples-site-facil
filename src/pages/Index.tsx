@@ -57,7 +57,7 @@ const Index = () => {
           <p>Meu trabalho é guiado pela escuta atenta, pelo respeito à individualidade e pela prática baseada em evidências científicas.</p>
           <p>Busco construir, junto com cada paciente, um plano de cuidado personalizado, com foco no bem-estar, na qualidade de vida e na saúde mental.</p>
           <p className="font-semibold text-white">É isso que me move:</p>
-          <p>Prestar um bom cuidado com boa comunação e sempre trabalhar de forma colaborativa com pacientes, suas famílias e equipes multidisciplinares da saúde.</p>
+          <p>Acreditar que cada pessoa merece ser ouvida com atenção, acolhida sem julgamentos e cuidada com respeito à sua individualidade.</p>
         </blockquote>
       </section>
 
