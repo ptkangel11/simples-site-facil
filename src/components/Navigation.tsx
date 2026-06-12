@@ -10,7 +10,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'SOBRE', href: '/#sobre' },
     { name: 'DR. PABLO RESPONDE', href: '/#responde' },
-    { name: 'AGENDE A SUA CONSULTA', href: '/confirmar-presenca' }
+    { name: 'AGENDE A SUA CONSULTA', href: 'https://wa.me/message/3N4LB5XF4V22H1' }
   ];
 
   const toggleMenu = () => {
@@ -25,7 +25,7 @@ const Navigation = () => {
         <div className="flex-shrink-0">
           <Link to="/">
             <div className="w-16 h-16 rounded-full border border-[#D4AF37] flex items-center justify-center bg-transparent">
-              <span className="text-[#D4AF37] font-serif text-2xl tracking-tighter">PL</span>
+              <span className="text-[#D4AF37] font-serif text-2xl tracking-tighter">PB</span>
             </div>
           </Link>
         </div>
@@ -77,7 +77,7 @@ const Navigation = () => {
       <nav className="w-full bg-[#7A545C]/20 backdrop-blur-xl border-b border-white/10 p-4 z-50 md:hidden flex justify-between items-center fixed top-0">
         <Link to="/">
           <div className="w-12 h-12 rounded-full border border-[#D4AF37] flex items-center justify-center bg-transparent">
-            <span className="text-[#D4AF37] font-serif text-xl tracking-tighter">PL</span>
+            <span className="text-[#D4AF37] font-serif text-xl tracking-tighter">PB</span>
           </div>
         </Link>
 

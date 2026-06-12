@@ -2,22 +2,19 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation'; // Certifique-se que este caminho está correto
+import DrPabloImage from './Imagem PNG.png';
 
 const Layout = () => {
   return (
     <div className="min-h-screen bg-black font-inter relative">
       {/* Background Image - Aplicado a todas as páginas */}
       <div
-        className="fixed inset-0 bg-cover bg-no-repeat bg-right" // Classe 'bg-right' para alinhar à direita (e centro verticalmente)
-                                                                  // Você pode mudar para bg-right-top, bg-right-bottom, ou remover e usar style abaixo
+        className="fixed inset-0 bg-cover bg-no-repeat bg-center" 
         style={{
-          // CAMINHO CORRIGIDO: Assumindo que a imagem está em 'public/lovable-uploads/...'
-          backgroundImage: 'url("https://pabloberini.weebly.com/uploads/1/2/1/4/121474099/background-images/1141203653.png")',
-          // Se 'bg-right' não for suficiente ou quiser mais controle:
-          // backgroundPosition: '80% center', // Exemplo: 80% da esquerda, centro verticalmente
+          backgroundImage: `url(${DrPabloImage})`,
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60"></div> {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-black bg-opacity-30"></div> {/* Overlay escuro */}
       </div>
 
       {/* Navegação - Presente em todas as páginas */}

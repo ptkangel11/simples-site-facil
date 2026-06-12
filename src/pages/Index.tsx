@@ -2,6 +2,8 @@
 import React from 'react';
 import { CheckCircle2, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import DrPabloImage from '../components/modificado.png';
+import ProfileImage from '../components/mini.png';
 import {
   Accordion,
   AccordionContent,
@@ -16,7 +18,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="sobre" className="animate-fade-in w-full mb-20 text-center pt-32 md:pt-48 scroll-mt-24">
         <h1 className="text-2xl sm:text-3xl lg:text-5xl text-white mb-6 tracking-wide font-light leading-tight">
-          "Acompanhamento longitudinal centrado no paciente, individualizado e contínuo."
+        “Psiquiatria de excelência, com precisão clínica e cuidado profundamente individualizado.”
         </h1>
         <p className="text-xl sm:text-2xl text-gray-300 mb-2 font-medium">
           Dr. Pablo Berini Lemgruber
@@ -24,11 +26,26 @@ const Index = () => {
         <p className="text-lg text-gray-400">
           Médico - CRM/MG 113.934
         </p>
-        <div className="mt-8">
-          <Link to="/confirmar-presenca" className="inline-block bg-white text-black px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors">
-            Agendar Consulta
-          </Link>
-        </div>
+      <div className="mt-8">
+        <Link 
+          to="https://wa.me/message/3N4LB5XF4V22H1" 
+          target="_blank" // Abre numa nova aba (boa prática pra links externos)
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors"
+        >
+          {/* SVG do WhatsApp */}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="24" 
+            height="24" 
+            viewBox="0 0 24 24" 
+            fill="currentColor"
+          >
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.012c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.82 9.82 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+          </svg>
+          Agendar Consulta
+        </Link>
+      </div>
       </section>
 
       {/* O que orienta meu cuidado */}
@@ -37,22 +54,23 @@ const Index = () => {
           O que orienta meu cuidado
         </h2>
         <blockquote className="text-gray-300 text-lg space-y-4 max-w-3xl">
-          <p>Ofereço uma prática clínica baseada em evidências, com foco em custo-efetividade e na segurança do paciente.</p>
-          <p>Meu raciocínio clínico permite elaboração de hipóteses e a tomada de decisões mesmo diante de demandas altas e fluxos intensos de pacientes.</p>
+          <p>Meu trabalho é guiado pela escuta atenta, pelo respeito à individualidade e pela prática baseada em evidências científicas.</p>
+          <p>Busco construir, junto com cada paciente, um plano de cuidado personalizado, com foco no bem-estar, na qualidade de vida e na saúde mental.</p>
           <p className="font-semibold text-white">É isso que me move:</p>
-          <p>Prestar um bom cuidado com boa comunicação e sempre trabalhar de forma colaborativa com pacientes, suas famílias e equipes multidisciplinares da saúde.</p>
+          <p>Prestar um bom cuidado com boa comunação e sempre trabalhar de forma colaborativa com pacientes, suas famílias e equipes multidisciplinares da saúde.</p>
         </blockquote>
       </section>
 
       {/* Quem eu sou como profissional */}
       <section className="w-full mb-20 flex flex-col md:flex-row gap-10 items-start">
-        <div className="w-full md:w-1/3">
+        <div className="w-full bg-black/50 backdrop-blur-md p-8 sm:p-10 rounded-xl border border-gray-800 shadow-2xl">
+        <div className="w-full md:w-1/5 mb-10">
           {/* Placeholder para a foto do Dr Pablo */}
           <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden">
             <img 
-              src="https://via.placeholder.com/600x800/333333/cccccc?text=Foto+Dr.+Pablo" 
+              src={ProfileImage} 
               alt="Dr. Pablo Berini Lemgruber" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover brightness-10"
             />
           </div>
         </div>
@@ -67,29 +85,30 @@ const Index = () => {
           <ul className="space-y-4 text-gray-300">
             <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
-              <span>Bacharelado em Medicina pelo Centro Universitário Faminas Muriaé (2020 - 2025)</span>
+              <span>Médico pelo Centro Universitário Faminas </span>
             </li>
             <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
-              <span>Pós Graduando em Psiquiatria Adulto pelo Hospital Israelita Albert Einstein - SP</span>
+              <span>Pós Graduação em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
             </li>
-            <li className="flex items-start gap-3">
+            {/* <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
               <span>ACLS / BLS (Advanced Cardiovascular Life Support) aprovado pela American Heart Association (2025)</span>
-            </li>
-            <li className="flex items-start gap-3">
+            </li> */}
+            {/* <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
               <span>Médico plantonista na UPA Conselheiro Lafaiete e no Hospital Divino Espírito Santo (Lamim)</span>
-            </li>
-            <li className="flex items-start gap-3">
+            </li> */}
+            {/* <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
               <span>Experiência no SAMU, CEDISME (UTI móvel), UBS e Saúde Ocupacional em diferentes unidades</span>
-            </li>
-            <li className="flex items-start gap-3">
+            </li> */}
+            {/* <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
               <span>Interesse e atuação nas áreas de clínica médica, urgência e emergência, saúde mental e saúde coletiva</span>
-            </li>
+            </li> */}
           </ul>
+        </div>
         </div>
       </section>
 
@@ -104,33 +123,45 @@ const Index = () => {
         
         <Accordion type="single" collapsible className="w-full text-left bg-black/40 backdrop-blur-sm rounded-lg border border-gray-800">
           <AccordionItem value="item-1" className="border-gray-800 px-4">
-            <AccordionTrigger className="text-white hover:text-gray-300 text-left">Como conhecer a atuação do Dr. Pablo?</AccordionTrigger>
+            <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Como conhecer a atuação do Dr. Pablo?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              Entre em contato, agende sua consulta ou tire dúvidas sobre prevenção, exames de rotina ou atendimentos mais aprofundados. O cuidado é integrado e longitudinal.
+             O primeiro contato normalmente acontece pelo site ou pelas redes sociais. Lá você encontra informações claras sobre meu trabalho, minha forma de cuidar e os atendimentos que realizo, para decidir com tranquilidade se esse é o cuidado que você procura.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2" className="border-gray-800 px-4">
-            <AccordionTrigger className="text-white hover:text-gray-300 text-left">Como faço o agendamento?</AccordionTrigger>
+            <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Como faço o agendamento?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos variam entre presencial, domiciliar ou clínicas.
+              O agendamento pode ser feito pelo número (31) 98753-2126. Atendimentos online e em breve presencial.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="border-gray-800 px-4">
-            <AccordionTrigger className="text-white hover:text-gray-300 text-left">Como funciona a primeira consulta?</AccordionTrigger>
+            <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Como funciona a primeira consulta?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              Faremos uma anamnese completa, avaliando sua rotina, estado de saúde geral, queixas atuais e histórico. Em seguida, iniciam-se os exames físicos baseados em medicina por evidências.
+             Na primeira consulta, faço uma avaliação cuidadosa, escuto suas queixas e explico as possibilidades de tratamento de forma clara, sem pressa e com total transparência.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4" className="border-gray-800 px-4">
-            <AccordionTrigger className="text-white hover:text-gray-300 text-left">E caso eu precise de acompanhamento continuado?</AccordionTrigger>
-            <AccordionContent className="text-gray-400">
-              O foco sempre é a saúde preventiva e o acompanhamento de comorbidades (como controle ambulatorial, prescrições e referenciamento). 
+            <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">
+              E após o atendimento?
+            </AccordionTrigger>
+            <AccordionContent className="text-gray-400 flex flex-col gap-3 pb-4">
+              <p>
+                O plano inclui acompanhamento por 60 dias via WhatsApp, com suporte direto do Dr. Pablo durante todo o período. Nesse período, você recebe toda a assistência necessária como por exemplo:
+              </p>
+              <ul className="list-disc pl-5 space-y-1 marker:text-gray-500">
+                <li>Primeira consulta completa</li>
+                <li>Renovação de receitas</li>
+                <li>Solicitação e renovação de exames, se necessário</li>
+                <li>Avaliação do tratamento se está em pleno funcionamento e dos possíveis efeitos adversos associados</li>
+                <li>Orientações e ajustes de medicações</li>
+                <li>Acompanhamento próximo para tirar dúvidas</li>
+              </ul>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
 
-      {/* O que posso fazer por você */}
+      {/* O que posso fazer por você
       <section className="w-full mb-10">
         <h2 className="text-2xl lg:text-3xl text-white mb-4 font-semibold border-b border-gray-600 pb-2">
           O que posso fazer por você
@@ -172,7 +203,7 @@ const Index = () => {
             <p className="text-gray-400">Avaliações corporativas e exames rotineiros.</p>
           </div>
         </div>
-      </section>
+      </section> */}
 
     </div>
   );
