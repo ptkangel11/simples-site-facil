@@ -3,8 +3,12 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation'; // Certifique-se que este caminho está correto
 import DrPabloImage from './Imagem PNG.png';
+import PersistentAudioPlayer from './PersistentAudioPlayer';
 
 const Layout = () => {
+  // URL da música que será tocada
+  const audioSrc = "https://github.com/ptkangel11/simples-site-facil/raw/312ab27c73cc573237ff1ac00c2898e1e401b782/src/components/05.%20I.%20Cremona,%20The%20Red%20Violin%20(Instrumental).flac";
+
   return (
     <div className="min-h-screen bg-black font-inter relative">
       {/* Background Image - Aplicado a todas as páginas */}
@@ -25,6 +29,9 @@ const Layout = () => {
       <main className="relative z-10 flex flex-col flex-grow"> 
         <Outlet /> {/* As rotas filhas (Index, ConfirmarPresenca, etc.) serão renderizadas aqui */}
       </main>
+
+      {/* Player de Áudio Persistente */}
+      <PersistentAudioPlayer src={audioSrc} />
     </div>
   );
 };
