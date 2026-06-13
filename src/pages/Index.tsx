@@ -3,7 +3,7 @@ import React from 'react';
 import { CheckCircle2, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DrPabloImage from '../components/modificado.png';
-import ProfileImage from '../components/mini.png';
+import ProfileImage from '../components/mini.jpeg';
 import {
   Accordion,
   AccordionContent,
@@ -62,31 +62,31 @@ const Index = () => {
       </section>
 
       {/* Quem eu sou como profissional */}
-      <section className="w-full mb-20 flex flex-col md:flex-row gap-10 items-start">
-        <div className="w-full bg-black/50 backdrop-blur-md p-8 sm:p-10 rounded-xl border border-gray-800 shadow-2xl">
-        <div className="w-full md:w-1/5 mb-10">
-          {/* Placeholder para a foto do Dr Pablo */}
-          <div className="aspect-[3/4] bg-gray-800 rounded-lg overflow-hidden">
+      <section className="w-full mb-20">
+        <div className="w-full bg-black/50 backdrop-blur-md p-8 sm:p-10 rounded-xl border border-gray-800 shadow-2xl flex flex-col md:flex-row gap-10 items-start">
+        <div className="w-full md:w-1/2 mb-10 md:mb-0">
+          {/* Foto do Dr Pablo */}
+          <div className="aspect-[3/4] rounded-lg overflow-hidden">
             <img 
               src={ProfileImage} 
               alt="Dr. Pablo Berini Lemgruber" 
-              className="w-full h-full object-cover brightness-10"
+              className="w-full h-full object-contain"
             />
           </div>
         </div>
         <div className="w-full md:w-2/3">
           <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
-            Quem eu sou como profissional
+            Minha formação
           </h2>
           <div>
             <h3 className="text-xl text-white font-medium mb-1">Dr. Pablo Berini Lemgruber</h3>
             <p className="text-gray-400 mb-6">Médico - CRM/MG 113.934</p>
           </div>
           <ul className="space-y-4 text-gray-300">
-            <li className="flex items-start gap-3">
+            {/* <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
               <span>Médico pelo Centro Universitário Faminas </span>
-            </li>
+            </li> */}
             <li className="flex items-start gap-3">
               <CheckCircle2 className="w-6 h-6 text-white shrink-0" />
               <span>Pós Graduação em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
@@ -115,11 +115,11 @@ const Index = () => {
       {/* Como funciona o atendimento (Responde) */}
       <section id="responde" className="w-full mb-20 scroll-mt-24">
         <h2 className="text-2xl lg:text-3xl text-white mb-4 font-semibold border-b border-gray-600 pb-2">
-          Dr. Pablo Responde
+          Dúvidas Frequentes
         </h2>
-        <p className="text-gray-300 mb-8">
+        {/* <p className="text-gray-300 mb-8">
           Atenção direcionada, da primeira queixa até a continuação do tratamento. Acolhimento feito com clareza e empatia.
-        </p>
+        </p> */}
         
         <Accordion type="single" collapsible className="w-full text-left bg-black/40 backdrop-blur-sm rounded-lg border border-gray-800">
           <AccordionItem value="item-1" className="border-gray-800 px-4">
@@ -129,9 +129,9 @@ const Index = () => {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2" className="border-gray-800 px-4">
-            <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Como faço o agendamento?</AccordionTrigger>
+            <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Onde é feito o atendimento?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              O agendamento pode ser feito pelo número (31) 98753-2126. Atendimentos online e em breve presencial.
+            O atendimento pode ser realizado online em todo o Brasil, e em breve presencial na região de Belo Horizonte - MG.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="border-gray-800 px-4">
