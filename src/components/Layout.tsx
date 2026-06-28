@@ -7,7 +7,7 @@ import PersistentAudioPlayer from './PersistentAudioPlayer';
 
 const Layout = () => {
   // URL da música que será tocada
-  const audioSrc = "src/components/Winter (L'Inverno) Op (mp3cut.net).flac";
+  const audioSrc = "https://github.com/ptkangel11/simples-site-facil/raw/refs/heads/main/src/components/Winter%20(L'Inverno)%20Op%20(mp3cut.net).flac";
 
   return (
     <div className="min-h-screen bg-black font-inter relative">
