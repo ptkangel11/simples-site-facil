@@ -136,7 +136,7 @@ const Index = () => {
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
-                <span>Pós Graduação em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
+                <span>Pós Graduando em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
               </li>
             </ul>
           </div>
