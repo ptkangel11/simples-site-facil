@@ -112,7 +112,7 @@ const Index = () => {
           <AccordionItem value="item-2" className="border-gray-800 px-4">
             <AccordionTrigger className="text-white hover:text-gray-300 text-left">Como faço o agendamento?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos variam entre presencial, domiciliar ou clínicas.
+              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos via Telemedicina
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="border-gray-800 px-4">
