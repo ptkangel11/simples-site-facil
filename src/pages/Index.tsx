@@ -47,6 +47,31 @@ const REVIEWS_DATA = [
     name: "Laís Falanghe",
     initial: "L",
     text: "Fui muito bem atendida pelo Dr. Pablo. Esclareceu todas as minhas dúvidas com paciência e foi extremamente pontual.",
+  },
+  {
+    name: "Mário Guilherme Serenário",
+    initial: "M",
+    text: "SALVOU MINHA MÃE!!",
+  },
+  {
+    name: "Deivison Gregório",
+    initial: "D",
+    text: "Médico simpático com atendimento humanizado. Muito bom o atendimento!",
+  },
+  {
+    name: "Lucas Ferreira",
+    initial: "L",
+    text: "Ele é muito atencioso!",
+  },
+  {
+    name: "Matheus Fonseca Felipe",
+    initial: "M",
+    text: "Ótimo médico!",
+  },
+  {
+    name: "Mila",
+    initial: "M",
+    text: "Ótimo médico!!!",
   }
 ];
 
