@@ -281,11 +281,11 @@ const Index = () => {
 
       {/* Seção de Localização (Apenas o Embed do Google Maps) */}
       <section className="w-full mb-10">
-        <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
+        {/* <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
           Localização
-        </h2>
+        </h2> */}
         {/* Container flexível que adapta a proporção do mapa entre celular e desktop */}
-        <div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
+        {/* <div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
           <iframe 
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.8125173446015!2d-43.7202725!3d-20.513910499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa3e373edc367b1%3A0x441556c296e77b19!2sDr.%20Pablo%20Berini!5e0!3m2!1spt-BR!2sbr!4v1782054250863!5m2!1spt-BR!2sbr" 
             width="100%" 
@@ -295,7 +295,7 @@ const Index = () => {
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
-        </div>
+        </div> */}
       </section>
 
     </div>
