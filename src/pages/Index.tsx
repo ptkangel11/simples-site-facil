@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { CheckCircle2, ChevronDown, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DrPabloImage from '../components/modificado.png';
-import ProfileImage from '../components/mini.jpeg';
+import ProfileImage from '<div styleName={} />
+<components />
+<IMG_0635></IMG_0635>.jpeg';
 import {
   Accordion,
   AccordionContent,
