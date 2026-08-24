@@ -281,9 +281,9 @@ const Index = () => {
 
       {/* Seção de Localização (Apenas o Embed do Google Maps) */}
       <section className="w-full mb-10">
-        {/* <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
+        { <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
           Localização
-        </h2> */}
+        </h2> }
         {/* Container flexível que adapta a proporção do mapa entre celular e desktop */}
         {<div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
         <iframe 
