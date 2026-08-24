@@ -161,7 +161,7 @@ const Index = () => {
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
-                <span>Pós Graduando em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
+                <span>Pós Graduação em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
               </li>
             </ul>
           </div>
@@ -183,7 +183,7 @@ const Index = () => {
           <AccordionItem value="item-2" className="border-gray-800 px-4">
             <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Onde é feito o atendimento?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos via Telemedicina
+              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos via Telemedicina em todo o Brasil e atendimeto presencial na região de Conselheiro Lafaiete
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="border-gray-800 px-4">
@@ -285,17 +285,18 @@ const Index = () => {
           Localização
         </h2> */}
         {/* Container flexível que adapta a proporção do mapa entre celular e desktop */}
-        {/* <div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3736.8125173446015!2d-43.7202725!3d-20.513910499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa3e373edc367b1%3A0x441556c296e77b19!2sDr.%20Pablo%20Berini!5e0!3m2!1spt-BR!2sbr!4v1782054250863!5m2!1spt-BR!2sbr" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div> */}
+        {<div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5823.581874362467!2d-43.79761792590763!3d-20.65677646134892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa16021454db3fb%3A0x1288020b0ffde40f!2sR.%20Frei%20Eust%C3%A1quio%2C%2065%20-%20Lourdes%2C%20Conselheiro%20Lafaiete%20-%20MG%2C%2036408-018!5e1!3m2!1spt-BR!2sbr!4v1787571879473!5m2!1spt-BR!2sbr" 
+          width="600" 
+          height="450" 
+          style={{ border: 0 }} 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+      }
       </section>
 
     </div>
