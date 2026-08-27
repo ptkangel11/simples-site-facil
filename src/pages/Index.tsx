@@ -209,6 +209,22 @@ const Index = () => {
                 <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
                 <span>Pós Graduação em Psiquiatria pelo Hospital Israelita Albert Einstein - SP</span>
               </li>
+               <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                <span>Bacharelado em Medicina pelo Centro Universitário Faminas - MG</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                <span>Cursos de Emergências Psiquiátricas pelo CRM-MG</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                <span>Capacitação em prescrição de canabinoides</span>
+              </li>
+               <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                <span>Curso ACLS (American Heart Association)</span>
+              </li>
             </ul>
           </div>
         </div>
