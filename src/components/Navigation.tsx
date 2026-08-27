@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Menu, X, Search } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -7,10 +6,13 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  // 1. Adicionamos 'ÚLTIMOS POSTS' direto na lista de navegação
   const navItems = [
     { name: 'SOBRE', href: '/#sobre' },
     { name: 'DR. PABLO RESPONDE', href: '/#responde' },
-    { name: 'AGENDE A SUA CONSULTA', href: 'https://wa.me/message/3N4LB5XF4V22H1' }
+    { name: 'ÚLTIMOS POSTS', href: '/#posts' },
+    { name: 'AGENDE SUA CONSULTA', href: 'https://wa.me/message/3N4LB5XF4V22H1' },
+    { name: 'LOCALIZAÇÃO', href: '/#localizacao' }
   ];
 
   const toggleMenu = () => {
@@ -38,22 +40,25 @@ const Navigation = () => {
               <a
                 key={item.name}
                 href={item.href}
+                // 2. Ajustamos o hover para usar a cor dourada (#D4AF37)
                 className={`text-sm font-semibold tracking-wider transition-colors duration-300 relative pb-1 ${
-                  isActive ? 'text-white border-b-2 border-white' : 'text-gray-200 hover:text-white hover:border-b-2 hover:border-gray-300'
+                  isActive ? 'text-[#D4AF37] border-b-2 border-[#D4AF37]' : 'text-gray-200 hover:text-[#D4AF37] hover:border-b-2 hover:border-[#D4AF37]'
                 }`}
               >
                 {item.name}
               </a>
+              
             ) : (
               <Link
                 key={item.name}
                 to={item.href}
                 className={`text-sm font-semibold tracking-wider transition-colors duration-300 relative pb-1 ${
-                  isActive ? 'text-white border-b-2 border-white' : 'text-gray-200 hover:text-white hover:border-b-2 hover:border-gray-300'
+                  isActive ? 'text-[#D4AF37] border-b-2 border-[#D4AF37]' : 'text-gray-200 hover:text-[#D4AF37] hover:border-b-2 hover:border-[#D4AF37]'
                 }`}
               >
                 {item.name}
               </Link>
+              
             )
           })}
         </div>

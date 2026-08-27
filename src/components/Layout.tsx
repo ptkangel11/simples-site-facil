@@ -3,11 +3,11 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navigation from './Navigation'; // Certifique-se que este caminho está correto
 import DrPabloImage from './Imagem PNG.png';
+import music from './Violin_Concerto_in_D_Minor_Op_47_I_Allegro_moderato_Jean_Sibelius_[cut_102sec].mp3'
 import PersistentAudioPlayer from './PersistentAudioPlayer';
 
 const Layout = () => {
   // URL da música que será tocada
-  const audioSrc = "https://raw.githubusercontent.com/ptkangel11/simples-site-facil/refs/heads/main/src/components/Winter%20(L'Inverno)%20Op.8%20No.4%20F%20Minor%20Allegro%20Non%20Molto.flac#t=47";
 
   return (
     <div className="min-h-screen bg-black font-inter relative">
@@ -31,7 +31,7 @@ const Layout = () => {
       </main>
 
       {/* Player de Áudio Persistente */}
-      {/* <PersistentAudioPlayer src={audioSrc} /> */}
+      { <PersistentAudioPlayer src={music} /> }
     </div>
   );
 };

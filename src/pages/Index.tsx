@@ -1,9 +1,12 @@
 // src/pages/Index.tsx
-import React, { useState } from 'react';
-import { CheckCircle2, ChevronDown, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { CheckCircle2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DrPabloImage from '../components/modificado.png';
 import ProfileImage from '../components/IMG_0635.jpeg';
+import ImagemPost1 from '../components/WhatsApp Image 2026-08-26 at 20.14.02.jpeg'; // <- Adicione esta linha
+import ImagemPost2 from '../components/comodormir.jpeg';
+import ImagemPost3 from '../components/criseansiedade.jpeg';
 import {
   Accordion,
   AccordionContent,
@@ -11,7 +14,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-// 1. BANCO DE AVALIAÇÕES (7 selecionadas a dedo do seu Google Maps)
+// 1. BANCO DE AVALIAÇÕES
 const REVIEWS_DATA = [
   {
     name: "Felipe Alves",
@@ -75,8 +78,52 @@ const REVIEWS_DATA = [
   }
 ];
 
+// Componente de Animação dos Números
+const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    let start = 0;
+    const duration = 2500;
+    const increment = value / (duration / 16);
+
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.ceil(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [value, isVisible]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{count}{suffix}
+    </span>
+  );
+};
+
 const Index = () => {
-  // Estado que controla qual é a avaliação que está na "ponta esquerda" do carrossel
   const [currentReview, setCurrentReview] = useState(0);
 
   const nextReview = () => {
@@ -87,7 +134,6 @@ const Index = () => {
     setCurrentReview((prev) => (prev - 1 + REVIEWS_DATA.length) % REVIEWS_DATA.length);
   };
 
-  // Função matemática que recorta exatamente as 3 avaliações visíveis do momento
   const getVisibleReviews = () => {
     return [
       REVIEWS_DATA[currentReview],
@@ -177,13 +223,31 @@ const Index = () => {
           <AccordionItem value="item-1" className="border-gray-800 px-4">
             <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Como conhecer a atuação do Dr. Pablo?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-             O primeiro contato normalmente acontece pelo site ou pelas redes sociais. Lá você encontra informações claras sobre meu trabalho, minha forma de cuidar e os atendimentos que realizo, para decidir com tranquilidade se esse é o cuidado que você procura.
+              O primeiro contato normalmente acontece pelo{' '}
+              <a 
+                href="https://wa.me/message/3N4LB5XF4V22H1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white font-medium underline underline-offset-4 hover:text-green-400 transition-colors"
+              >
+                WhatsApp
+              </a>{' '}
+              ou pelas{' '}
+              <a 
+                href="https://instagram.com/pabloberini" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white font-medium underline underline-offset-4 hover:text-pink-400 transition-colors"
+              >
+                redes sociais
+              </a>
+              . Lá você encontra informações claras sobre meu trabalho, minha forma de cuidar e os atendimentos que realizo, para decidir com tranquilidade se esse é o cuidado que você procura.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2" className="border-gray-800 px-4">
             <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">Onde é feito o atendimento?</AccordionTrigger>
             <AccordionContent className="text-gray-400">
-              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos via Telemedicina em todo o Brasil e atendimeto presencial na região de Conselheiro Lafaiete
+              O agendamento pode ser feito pelo número (31) 98753-2126 ou através do e-mail pabloberini@hotmail.com. Atendimentos online em todo o Brasil e atendimento presencial na região de Conselheiro Lafaiete.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3" className="border-gray-800 px-4">
@@ -198,7 +262,15 @@ const Index = () => {
             </AccordionTrigger>
             <AccordionContent className="text-gray-400 flex flex-col gap-3 pb-4">
               <p>
-                O plano inclui acompanhamento por 60 dias via WhatsApp, com suporte direto do Dr. Pablo durante todo o período. Nesse período, você recebe toda a assistência necessária como por exemplo:
+                O plano inclui acompanhamento por 60 dias via{' '}
+              <a 
+                href="https://wa.me/message/3N4LB5XF4V22H1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white font-medium underline underline-offset-4 hover:text-green-400 transition-colors"
+              >
+                WhatsApp
+              </a>{''}, com suporte direto do Dr. Pablo durante todo o período. Nesse período, você recebe toda a assistência necessária como por exemplo:
               </p>
               <ul className="list-disc pl-5 space-y-1 marker:text-gray-500">
                 <li>Primeira consulta completa</li>
@@ -213,14 +285,50 @@ const Index = () => {
         </Accordion>
       </section>
 
-      {/* Seção de Avaliações (Carrossel Infinito Estilo Trustindex) */}
+      {/* Seção de Dados e Estatísticas (Com animação) */}
+      <section className="w-full mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-black/40 backdrop-blur-md border border-gray-600 p-8 flex flex-col items-center text-center hover:bg-black/60 transition-colors">
+            <h3 className="text-4xl lg:text-5xl font-bold text-orange-500 mb-4">
+              <AnimatedNumber value={25} suffix="%" />
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              da população mundial experimenta algum tipo de transtorno mental, incluindo ansiedade, depressão, transtorno bipolar, esquizofrenia, entre outros.
+            </p>
+          </div>
+          <div className="bg-black/40 backdrop-blur-md border border-gray-600 p-8 flex flex-col items-center text-center hover:bg-black/60 transition-colors">
+            <h3 className="text-3xl lg:text-4xl font-bold text-orange-500 mb-4">
+              <AnimatedNumber value={40} prefix="+ " suffix="MI" />
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              de pessoas no mundo sofrem de demência, e espera-se que esse número cresça para 82 milhões em 2030. A maioria das pessoas com demência vive em países de baixa e média renda.
+            </p>
+          </div>
+          <div className="bg-black/40 backdrop-blur-md border border-gray-600 p-8 flex flex-col items-center text-center hover:bg-black/60 transition-colors">
+            <h3 className="text-4xl lg:text-5xl font-bold text-orange-500 mb-4">
+              <AnimatedNumber value={3} suffix="%" />
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              da população mundial tem Transtorno Bipolar, mas estima-se que até 60% dos casos sejam diagnosticados incorretamente como depressão unipolar, o que leva a tratamentos inadequados.
+            </p>
+          </div>
+          <div className="bg-black/40 backdrop-blur-md border border-gray-600 p-8 flex flex-col items-center text-center hover:bg-black/60 transition-colors">
+            <h3 className="text-4xl lg:text-5xl font-bold text-orange-500 mb-4">
+              <AnimatedNumber value={75} suffix="%" />
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              Cerca de 75% das pessoas que sofrem de depressão em países de baixa e média renda não recebem tratamento. A falta de recursos e profissionais são razões para essa lacuna.
+            </p>
+          </div>
+        </div>
+      </section> 
+
+      {/* Seção de Avaliações */}
       <section className="w-full mb-20">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-600 pb-2 mb-8 gap-4">
           <h2 className="text-2xl lg:text-3xl text-white font-semibold mb-0 border-0">
             O que dizem os pacientes
           </h2>
-          
-          {/* Setas de Navegação */}
           <div className="flex items-center gap-2 self-end sm:self-auto">
             <button 
               onClick={prevReview} 
@@ -238,13 +346,11 @@ const Index = () => {
             </button>
           </div>
         </div>
-
-        {/* Grid responsivo com as 3 avaliações recortadas pela função */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {getVisibleReviews().map((review, idx) => (
             <div 
-              key={review.name} // O nome como chave faz o React re-renderizar a animação suavemente
-              className={`bg-black/50 backdrop-blur-md border border-gray-800 p-6 rounded-xl shadow-lg flex flex-col justify-between h-full animate-fade-in ${
+              key={review.name}
+              className={`bg-black/50 backdrop-blur-md border border-gray-800 p-6 rounded-xl shadow-lg flex flex-col justify-between h-full min-h-[280px] md:min-h-[320px] animate-fade-in ${
                 idx > 0 ? 'hidden md:flex' : 'flex'
               }`}
             >
@@ -260,7 +366,7 @@ const Index = () => {
                   "{review.text}"
                 </p>
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-gray-800/80">
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-800/80 shrink-0">
                 <div className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center text-white font-bold shrink-0">
                   {review.initial}
                 </div>
@@ -277,28 +383,95 @@ const Index = () => {
         </div>
       </section>
 
+      
+
      
 
-      {/* Seção de Localização (Apenas o Embed do Google Maps) */}
-      <section className="w-full mb-10">
-        { <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
-          Localização
-        </h2> }
-        {/* Container flexível que adapta a proporção do mapa entre celular e desktop */}
-        {<div className="w-full aspect-video md:aspect-[21/9] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5823.581874362467!2d-43.79761792590763!3d-20.65677646134892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa16021454db3fb%3A0x1288020b0ffde40f!2sR.%20Frei%20Eust%C3%A1quio%2C%2065%20-%20Lourdes%2C%20Conselheiro%20Lafaiete%20-%20MG%2C%2036408-018!5e1!3m2!1spt-BR!2sbr!4v1787571879473!5m2!1spt-BR!2sbr" 
-          width="600" 
-          height="450" 
-          style={{ border: 0 }} 
-          allowFullScreen 
-          loading="lazy" 
-          referrerPolicy="strict-origin-when-cross-origin"
-        ></iframe>
-      </div>
-      }
+      {/* Seção Últimos Posts */}
+      <section className="w-full mb-20">
+        <h2 className="text-2xl lg:text-3xl text-white mb-8 font-semibold border-b border-gray-600 pb-2">
+          Últimos Posts
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="group cursor-pointer flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
+            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden mb-5 border border-gray-800">
+              <img
+                src={ImagemPost1}
+                alt="Sobre a valorização do cansaço"
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="text-xl text-white font-medium mb-3 group-hover:text-gray-300 transition-colors line-clamp-2">
+              21 dicas de como largar o cigarro
+            </h3>
+            <div className="mt-auto pt-2">
+              <span className="text-sm font-medium text-orange-400 group-hover:text-orange-400 transition-colors uppercase tracking-wider">
+                Continuar lendo
+              </span>
+            </div>
+          </div>
+          <div className="group cursor-pointer flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
+            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden mb-5 border border-gray-800">
+              <img
+                src={ImagemPost2}
+                alt="Ler para existir: a resistência da leitura na era das telas"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="text-xl text-white font-medium mb-3 group-hover:text-gray-300 transition-colors line-clamp-2">
+              Como dormir melhor: Higiene do Sono
+            </h3>
+            <div className="mt-auto pt-2">
+              <span className="text-sm font-medium text-orange-400 group-hover:text-orange-400 transition-colors uppercase tracking-wider">
+                Continuar lendo
+              </span>
+            </div>
+          </div>
+          <div className="group cursor-pointer flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
+            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden mb-5 border border-gray-800">
+              <img
+                src={ImagemPost3}
+                alt="Laudo de Aptidão e Sanidade Mental"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <h3 className="text-xl text-white font-medium mb-3 group-hover:text-gray-300 transition-colors line-clamp-2">
+              O que fazer durante uma crise de ansiedade
+            </h3>
+            <div className="mt-auto pt-2">
+              <span className="text-sm font-medium text-orange-400 group-hover:text-orange-400 transition-colors uppercase tracking-wider">
+                Continuar lendo
+              </span>
+            </div>
+          </div>
+          
+        </div>
+        <div className="flex justify-center mt-12">
+          <Link 
+            to="/blog" /* Aqui você coloca a rota para a página com todos os posts no futuro */
+            className="px-8 py-2.5 border border-orange-400 text-orange-400 rounded-md font-medium hover:bg-orange-500 hover:text-black transition-colors"
+          >
+            Ler todos
+          </Link>
+        </div>  
       </section>
-
+       {/* Seção de Localização */}
+      <section id="localizacao" className="w-full mb-10">
+        <h2 className="text-2xl lg:text-3xl text-white mb-6 font-semibold border-b border-gray-600 pb-2">
+          Localização
+        </h2>
+        <div className="w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5823.581874362467!2d-43.79761792590763!3d-20.65677646134892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa16021454db3fb%3A0x1288020b0ffde40f!2sR.%20Frei%20Eust%C3%A1quio%2C%2065%20-%20Lourdes%2C%20Conselheiro%20Lafaiete%20-%20MG%2C%2036408-018!5e1!3m2!1spt-BR!2sbr!4v1787571879473!5m2!1spt-BR!2sbr" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
     </div>
   );
 };
