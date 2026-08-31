@@ -4,9 +4,13 @@ import { CheckCircle2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import DrPabloImage from '../components/modificado.png';
 import ProfileImage from '../components/IMG_0635.jpeg';
-import ImagemPost1 from '../components/WhatsApp Image 2026-08-26 at 20.14.02.jpeg'; // <- Adicione esta linha
+import ImagemPost1 from '../components/WhatsApp Image 2026-08-26 at 20.14.02.jpeg'; 
 import ImagemPost2 from '../components/comodormir.jpeg';
 import ImagemPost3 from '../components/criseansiedade.jpeg';
+import PostAnsiedade from './PostAnsiedade';
+import PostSono from './PostSono';
+import PostCigarro from './PostCigarro';
+
 import {
   Accordion,
   AccordionContent,
@@ -14,7 +18,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-// 1. BANCO DE AVALIAÇÕES
 const REVIEWS_DATA = [
   {
     name: "Felipe Alves",
@@ -78,7 +81,6 @@ const REVIEWS_DATA = [
   }
 ];
 
-// Componente de Animação dos Números
 const AnimatedNumber = ({ value, prefix = "", suffix = "" }: { value: number, prefix?: string, suffix?: string }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -148,7 +150,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="sobre" className="animate-fade-in w-full mb-20 text-center pt-32 md:pt-48 scroll-mt-24">
         <h1 className="text-2xl sm:text-3xl lg:text-5xl text-white mb-6 tracking-wide font-light leading-tight">
-          “Psiquiatria de excelência, com precisão clínica e cuidado profundamente individualizado.”
+          “Psiquiatria de excelência, com precisão clínica e cuidado individualizado.”
         </h1>
         <p className="text-xl sm:text-2xl text-gray-300 mb-2 font-medium">
           Dr. Pablo Berini Lemgruber
@@ -215,7 +217,7 @@ const Index = () => {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
-                <span>Cursos de Emergências Psiquiátricas pelo CRM-MG</span>
+                <span>Curso de Emergências Psiquiátricas pelo CRM-MG</span>
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
@@ -225,12 +227,16 @@ const Index = () => {
                 <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
                 <span>Curso ACLS (American Heart Association)</span>
               </li>
+              <li className="flex items-start gap-3">
+                <CheckCircle2 className="w-6 h-6 text-white shrink-0 mt-0.5" />
+                <span>Experiência prática em Medicina do Trabalho</span>
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
-      {/* Como funciona o atendimento (Responde) */}
+      {/* Como funciona o atendimento */}
       <section id="responde" className="w-full mb-20 scroll-mt-24">
         <h2 className="text-2xl lg:text-3xl text-white mb-4 font-semibold border-b border-gray-600 pb-2">
           Dúvidas Frequentes
@@ -272,21 +278,13 @@ const Index = () => {
              Na primeira consulta, faço uma avaliação cuidadosa, escuto suas queixas e explico as possibilidades de tratamento de forma clara, sem pressa e com total transparência.
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-4" className="border-gray-800 px-4">
+         <AccordionItem value="item-4" className="border-gray-800 px-4">
             <AccordionTrigger className="text-white hover:text-gray-300 text-left hover:no-underline">
               E após o atendimento?
             </AccordionTrigger>
             <AccordionContent className="text-gray-400 flex flex-col gap-3 pb-4">
               <p>
-                O plano inclui acompanhamento por 60 dias via{' '}
-              <a 
-                href="https://wa.me/message/3N4LB5XF4V22H1" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-white font-medium underline underline-offset-4 hover:text-green-400 transition-colors"
-              >
-                WhatsApp
-              </a>{''}, com suporte direto do Dr. Pablo durante todo o período. Nesse período, você recebe toda a assistência necessária como por exemplo:
+                O plano inclui suporte direto do Dr. Pablo para que você receba toda a assistência necessária, como por exemplo:
               </p>
               <ul className="list-disc pl-5 space-y-1 marker:text-gray-500">
                 <li>Primeira consulta completa</li>
@@ -301,7 +299,7 @@ const Index = () => {
         </Accordion>
       </section>
 
-      {/* Seção de Dados e Estatísticas (Com animação) */}
+      {/* Seção de Dados e Estatísticas */}
       <section className="w-full mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-black/40 backdrop-blur-md border border-gray-600 p-8 flex flex-col items-center text-center hover:bg-black/60 transition-colors">
@@ -399,17 +397,13 @@ const Index = () => {
         </div>
       </section>
 
-      
-
-     
-
       {/* Seção Últimos Posts */}
-      <section className="w-full mb-20">
+      <section id="posts" className="w-full mb-20 scroll-mt-24">
         <h2 className="text-2xl lg:text-3xl text-white mb-8 font-semibold border-b border-gray-600 pb-2">
           Últimos Posts
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="group cursor-pointer flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
+          <div className="group flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
             <div className="w-full aspect-[4/3] rounded-lg overflow-hidden mb-5 border border-gray-800">
               <img
                 src={ImagemPost1}
@@ -421,12 +415,12 @@ const Index = () => {
               21 dicas de como largar o cigarro
             </h3>
             <div className="mt-auto pt-2">
-              <span className="text-sm font-medium text-orange-400 group-hover:text-orange-400 transition-colors uppercase tracking-wider">
+              <Link to="/post-cigarro" className="text-sm font-medium text-orange-400 group-hover:text-orange-300 transition-colors uppercase tracking-wider">
                 Continuar lendo
-              </span>
+              </Link>
             </div>
           </div>
-          <div className="group cursor-pointer flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
+          <div className="group flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
             <div className="w-full aspect-[4/3] rounded-lg overflow-hidden mb-5 border border-gray-800">
               <img
                 src={ImagemPost2}
@@ -438,12 +432,12 @@ const Index = () => {
               Como dormir melhor: Higiene do Sono
             </h3>
             <div className="mt-auto pt-2">
-              <span className="text-sm font-medium text-orange-400 group-hover:text-orange-400 transition-colors uppercase tracking-wider">
+              <Link to="/post-sono" className="text-sm font-medium text-orange-400 group-hover:text-orange-300 transition-colors uppercase tracking-wider">
                 Continuar lendo
-              </span>
+              </Link>
             </div>
           </div>
-          <div className="group cursor-pointer flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
+          <div className="group flex flex-col h-full bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-gray-800/50 hover:border-gray-600 transition-colors">
             <div className="w-full aspect-[4/3] rounded-lg overflow-hidden mb-5 border border-gray-800">
               <img
                 src={ImagemPost3}
@@ -455,16 +449,16 @@ const Index = () => {
               O que fazer durante uma crise de ansiedade
             </h3>
             <div className="mt-auto pt-2">
-              <span className="text-sm font-medium text-orange-400 group-hover:text-orange-400 transition-colors uppercase tracking-wider">
+              <Link to="/post-ansiedade" className="text-sm font-medium text-orange-400 group-hover:text-orange-300 transition-colors uppercase tracking-wider">
                 Continuar lendo
-              </span>
+              </Link>
             </div>
           </div>
           
         </div>
         <div className="flex justify-center mt-12">
           <Link 
-            to="/blog" /* Aqui você coloca a rota para a página com todos os posts no futuro */
+            to="/blog" 
             className="px-8 py-2.5 border border-orange-400 text-orange-400 rounded-md font-medium hover:bg-orange-500 hover:text-black transition-colors"
           >
             Ler todos

@@ -1,13 +1,22 @@
 // src/components/Layout.tsx
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Navigation from './Navigation'; // Certifique-se que este caminho está correto
+import React, { useEffect } from 'react'; // Adicionado useEffect
+import { Outlet, useLocation } from 'react-router-dom'; // Adicionado useLocation
+import Navigation from './Navigation';
 import DrPabloImage from './Imagem PNG.png';
-import music from './Violin_Concerto_in_D_Minor_Op_47_I_Allegro_moderato_Jean_Sibelius_[cut_102sec].mp3'
+import music from './Violin_Concerto_in_D_Minor_Op_47_I_Allegro_moderato_Jean_Sibelius_[cut_102sec].mp3';
 import PersistentAudioPlayer from './PersistentAudioPlayer';
 
 const Layout = () => {
-  // URL da música que será tocada
+  const { pathname } = useLocation(); // Pega a URL/rota atual
+
+  // Esse truque faz a tela rolar pro topo suavemente toda vez que a URL mudar
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }, [pathname]);
 
   return (
     <div className="min-h-screen bg-black font-inter relative">
@@ -25,13 +34,12 @@ const Layout = () => {
       <Navigation />
 
       {/* Conteúdo da Rota Atual - Renderizado aqui */}
-      {/* Adicionamos flex para ajudar na centralização do conteúdo das páginas filhas se elas também usarem flex */}
       <main className="relative z-10 flex flex-col flex-grow"> 
-        <Outlet /> {/* As rotas filhas (Index, ConfirmarPresenca, etc.) serão renderizadas aqui */}
+        <Outlet /> 
       </main>
 
-      {/* Player de Áudio Persistente */}
-      { <PersistentAudioPlayer src={music} /> }
+      {/* Player de Áudio Persistente - COMEÇANDO AOS 30 SEGUNDOS */}
+      <PersistentAudioPlayer src={`${music}#t=30`} />
     </div>
   );
 };
