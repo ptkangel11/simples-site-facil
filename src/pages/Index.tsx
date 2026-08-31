@@ -288,7 +288,7 @@ const Index = () => {
               </p>
               <ul className="list-disc pl-5 space-y-1 marker:text-gray-500">
                 <li>Primeira consulta completa</li>
-                <li>Renovação de receitas</li>
+                <li>Renovação de receitas para 60 dias de tratamento</li>
                 <li>Solicitação e renovação de exames, se necessário</li>
                 <li>Avaliação do tratamento se está em pleno funcionamento e dos possíveis efeitos adversos associados</li>
                 <li>Orientações e ajustes de medicações</li>
