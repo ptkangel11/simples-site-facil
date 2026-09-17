@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'; // Adicionado useEffect
 import { Outlet, useLocation } from 'react-router-dom'; // Adicionado useLocation
 import Navigation from './Navigation';
 import DrPabloImage from './Imagem PNG.png';
-import music from './Violin_Concerto_in_D_Minor_Op_47_I_Allegro_moderato_Jean_Sibelius_[cut_102sec].mp3';
+import music from './Concerto for 2 Violins in A Minor, Op. 3, No. 8, Rv 522_ I. Allegro.mp3';
 import PersistentAudioPlayer from './PersistentAudioPlayer';
 
 const Layout = () => {
