@@ -39,7 +39,7 @@ const Layout = () => {
       </main>
 
       {/* Player de Áudio Persistente - COMEÇANDO AOS 30 SEGUNDOS */}
-      <PersistentAudioPlayer src={`${music}#t=30`} />
+      <PersistentAudioPlayer src={`${music}`} />
     </div>
   );
 };
